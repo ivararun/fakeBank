@@ -1,0 +1,5 @@
+com/kuebiko/hello/service/MyFirstService.class
+com/kuebiko/hello/controllers/Dictionary.class
+com/kuebiko/hello/HelloApplication.class
+com/kuebiko/hello/service/MyFirstServiceIf.class
+com/kuebiko/hello/controllers/MyFirstApi.class
