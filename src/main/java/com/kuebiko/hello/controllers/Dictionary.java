@@ -1,19 +1,23 @@
 package com.kuebiko.hello.controllers;
 
+import com.kuebiko.hello.dao.DictionaryDao;
+import com.kuebiko.hello.entity.DictionaryEntity;
 import com.kuebiko.hello.models.DictionaryModel;
 import com.kuebiko.hello.service.DictionaryServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/dictionary")
 public class Dictionary {
 
-    DictionaryServiceImpl dictionaryServiceImpl = new DictionaryServiceImpl();
+    @Autowired
+    DictionaryDao dictionarydao;
 
     @PostMapping
     @RequestMapping("/add")
-    public String add(@RequestBody DictionaryModel model){
-        return dictionaryServiceImpl.add(model.getKey(), model.getValue());
+    public DictionaryEntity add(@RequestBody DictionaryModel model){
+        return dictionarydao.save(model.getKey(), model.getValue());
 
     }
 
@@ -21,7 +25,12 @@ public class Dictionary {
     @GetMapping
     @RequestMapping("/search")
     public String search(@RequestParam String x){
-        String result = dictionaryServiceImpl.search(x);
-        return result;
+        DictionaryEntity result = dictionarydao.get(x);
+
+        if(result == null){
+            return "Definition not found!!";
+        }else {
+            return result.getDefinition();
+        }
     }
 }
