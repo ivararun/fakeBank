@@ -1,26 +1,25 @@
-package com.kuebiko.hello.entity;
+package com.bank.kuebikofakebank.entity;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class LogInEntity {
-
+public class LoginEntity {
     @Id
-    int id;
+    long id;
+
     @Column
     String username;
+
     @Column
     String password;
 
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -40,4 +39,3 @@ public class LogInEntity {
         this.password = password;
     }
 }
-
