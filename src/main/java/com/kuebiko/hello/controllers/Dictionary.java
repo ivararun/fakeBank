@@ -33,4 +33,11 @@ public class Dictionary {
             return result.getDefinition();
         }
     }
+
+
+    @GetMapping()
+    @RequestMapping("/test")
+    public String test(){
+        return "testing";
+    }
 }
