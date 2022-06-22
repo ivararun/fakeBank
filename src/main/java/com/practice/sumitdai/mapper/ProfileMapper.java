@@ -8,10 +8,15 @@ public class ProfileMapper {
 
     public static ProfileModel map(ProfileEntity profileEntity){
 
+        if(profileEntity == null){
+            return null;
+        }
+
         ProfileModel profileModel = new ProfileModel();
 
 
         profileModel.setId(profileEntity.getId());
+
         profileModel.setPhoneNumber(profileEntity.getPhoneNumber());
 
 
@@ -32,6 +37,10 @@ public class ProfileMapper {
     }
 
     public static ProfileEntity map(ProfileModel profileModel){
+
+        if(profileModel==null){
+            return null;
+        }
 
         ProfileEntity profileEntity = new ProfileEntity();
 

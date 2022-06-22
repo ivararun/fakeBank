@@ -22,6 +22,10 @@ public class ProfileDao {
 
     public ProfileModel signup(ProfileModel profileModel) {
 
+        if(profileModel==null){
+            return null;
+        }
+
         logger.info("Running signup method");
         String anyError = ProfileValidate.validate(profileModel);
         logger.info("Completed validation");

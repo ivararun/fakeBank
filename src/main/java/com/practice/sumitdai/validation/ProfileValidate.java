@@ -29,6 +29,9 @@ public class ProfileValidate {
 
     public static String validate(ProfileModel profileModel){
 
+        if(profileModel == null) {
+            return "Profile cannot be empty";
+        }
         logger.info("Runing validatation for " + profileModel.toString());
         // first name
         String firstName = profileModel.getFirstName();
@@ -54,9 +57,17 @@ public class ProfileValidate {
             return "Email cannot be empty";
         }
 
+        //Remaining: Empty gender
+
         // gender
         String gender = profileModel.getGender();
-        if ( !gender.equals("M") && !gender.equals("F")){
+        if(gender==null){
+            return "Gender cannot be empty";
+        }
+
+
+
+        if ( !gender.equalsIgnoreCase("M") && !gender.equalsIgnoreCase("F")){
             return "Gender can only be M or F";
         }
 
