@@ -78,9 +78,7 @@ public class ProfileValidate {
         if (ssn == null) {
             return "SSN cannot be empty";
         }
-        if (ssn.length() != 9) {
-            return "SSN needs to be of length 9";
-        }
+
         try {
             int ssnInt = Integer.parseInt(ssn);
         }
@@ -88,11 +86,25 @@ public class ProfileValidate {
             return "Invalid SSN";
         }
 
+        if (ssn.length() != 9) {
+            return "SSN needs to be of length 9";
+        }
+
         // phone number
         Long phoneNumber = profileModel.getPhoneNumber();
         if(phoneNumber == null){
             return "Phone number cannot be empty";
         }
+
+//        try {
+//            // Logic: Need to ask sumit dai
+//            //Since profileModel.getPhoneNumber() return in Long
+//            //so don't know how to try catch
+//        }
+//        catch (Exception e){
+//            return "Invalid Phone Num ";
+//        }
+
         if (phoneNumber.toString().length() != 10){
             return "Phone number needs to be of length 10";
         }
