@@ -23,10 +23,5 @@ public class DaoTest {
     @Test
     public void signup_model_errorNull(){
         //checking of the model passing on signup method has error msg or not
-
-
-
-
-
     }
 }

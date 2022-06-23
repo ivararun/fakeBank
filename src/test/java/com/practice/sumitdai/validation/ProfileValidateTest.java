@@ -3,6 +3,7 @@ package com.practice.sumitdai.validation;
 import com.practice.sumitdai.entity.ProfileEntity;
 import com.practice.sumitdai.mapper.ProfileMapper;
 import com.practice.sumitdai.model.ProfileModel;
+import com.practice.sumitdai.repo.ProfileRepo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -124,7 +125,7 @@ public class ProfileValidateTest {
     }
 
     @Test
-    public void validate_gen_M_F(){
+    public void validate_gender_M_F(){
         ProfileModel md = new ProfileModel();
         md.setFirstName("a");
         md.setLastName("g");
@@ -136,11 +137,73 @@ public class ProfileValidateTest {
         Assertions.assertEquals("Gender can only be M or F", res);
     }
 
+    //SSN
+    public void validate_null_SSN(){
+        ProfileModel md = new ProfileModel();
+        md.setFirstName("a");
+        md.setLastName("g");
+        md.setAddress("Nepal");
+        md.setEmail("iu@ih");
+        md.setGender("M");
 
+        String expected_res = ProfileValidate.validate(md);
+        Assertions.assertEquals("SSN cannot be empty", expected_res);
+    }
 
-    // To Be COnt--
+    public void validate_SSN_ifInt(){
+        ProfileModel md = new ProfileModel();
+        md.setFirstName("a");
+        md.setLastName("g");
+        md.setAddress("Nepal");
+        md.setEmail("iu@ih");
+        md.setGender("M");
+        md.setSsn("abc");
 
+        String expected_res= ProfileValidate.validate(md);
+        Assertions.assertEquals("Invalid SSN", expected_res);
 
+    }
+
+    public void validate_SSN_length(){
+        ProfileModel md = new ProfileModel();
+        md.setFirstName("a");
+        md.setLastName("g");
+        md.setAddress("Nepal");
+        md.setEmail("iu@ih");
+        md.setGender("M");
+        md.setSsn("123");
+
+        String expected_response = ProfileValidate.validate(md);
+        Assertions.assertEquals("SSN needs to be of length 9", expected_response);
+    }
+
+    public void validate_null_phoneNum(){
+        ProfileModel md = new ProfileModel();
+        md.setFirstName("a");
+        md.setLastName("g");
+        md.setAddress("Nepal");
+        md.setEmail("iu@ih");
+        md.setGender("M");
+        md.setSsn("123456789");
+
+        String expected_response = ProfileValidate.validate(md);
+        Assertions.assertEquals("Phone number cannot be empty", expected_response);
+
+    }
+
+    public void validate_phnNum_length(){
+        ProfileModel md = new ProfileModel();
+        md.setFirstName("a");
+        md.setLastName("g");
+        md.setAddress("Nepal");
+        md.setEmail("iu@ih");
+        md.setGender("M");
+        md.setSsn("123456789");
+        md.setPhoneNumber(898L);    //L is because 898 is Long
+
+        String resp = ProfileValidate.validate(md);
+        Assertions.assertEquals("Phone number needs to ne of length 10", resp);
+    }
 
 
 
