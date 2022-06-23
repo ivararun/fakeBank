@@ -138,6 +138,7 @@ public class ProfileValidateTest {
     }
 
     //SSN
+    @Test
     public void validate_null_SSN(){
         ProfileModel md = new ProfileModel();
         md.setFirstName("a");
@@ -150,6 +151,7 @@ public class ProfileValidateTest {
         Assertions.assertEquals("SSN cannot be empty", expected_res);
     }
 
+    @Test
     public void validate_SSN_ifInt(){
         ProfileModel md = new ProfileModel();
         md.setFirstName("a");
@@ -164,6 +166,7 @@ public class ProfileValidateTest {
 
     }
 
+    @Test
     public void validate_SSN_length(){
         ProfileModel md = new ProfileModel();
         md.setFirstName("a");
@@ -177,6 +180,7 @@ public class ProfileValidateTest {
         Assertions.assertEquals("SSN needs to be of length 9", expected_response);
     }
 
+    @Test
     public void validate_null_phoneNum(){
         ProfileModel md = new ProfileModel();
         md.setFirstName("a");
@@ -191,6 +195,7 @@ public class ProfileValidateTest {
 
     }
 
+    @Test
     public void validate_phnNum_length(){
         ProfileModel md = new ProfileModel();
         md.setFirstName("a");
@@ -202,9 +207,28 @@ public class ProfileValidateTest {
         md.setPhoneNumber(898L);    //L is because 898 is Long
 
         String resp = ProfileValidate.validate(md);
-        Assertions.assertEquals("Phone number needs to ne of length 10", resp);
+        Assertions.assertEquals("Phone number needs to be of length 10", resp);
     }
 
+
+    // If the passed model is correct
+    // And validate return null
+    @Test
+    public void  validate_retunString(){
+        ProfileModel md = new ProfileModel();
+        md.setFirstName("a");
+        md.setLastName("g");
+        md.setAddress("Nepal");
+        md.setEmail("iu@ih");
+        md.setGender("M");
+        md.setSsn("123456789");
+        md.setPhoneNumber(1234567890L);
+
+
+        String expectedReturn = null;
+        String response= ProfileValidate.validate(md);
+        Assertions.assertEquals(expectedReturn, response);
+    }
 
 
 
