@@ -96,6 +96,7 @@ public class ProfileValidate {
             return "Phone number cannot be empty";
         }
 
+
 //        try {
 //            // Logic: Need to ask sumit dai
 //            //Since profileModel.getPhoneNumber() return in Long
