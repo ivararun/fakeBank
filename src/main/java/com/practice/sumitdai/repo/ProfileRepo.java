@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProfileRepo extends JpaRepository<ProfileEntity, Long> {
 
-    @Query(value = "select * from profile_entity where ssn = ?1 ", nativeQuery = true)
-    public ProfileEntity view(String ssn);
-
-//    @Query(value = "select * from profile_entity where ssn = ?1", nativeQuery = true)
+//    @Query(value = "select * from profile_entity where ssn = ?1 ", nativeQuery = true)
 //    public ProfileEntity view(String ssn);
+
+    @Query(value = "select * from profiles where ssn = ?1", nativeQuery = true)
+    public ProfileEntity view(String ssn);
 }

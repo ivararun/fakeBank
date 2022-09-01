@@ -21,7 +21,7 @@ public class ProfileValidateTest {
 
         String ssn = "123456789";
         String response = ProfileValidate.validateSsn(ssn);
-        // we expectt the response to be numm because ssn is good
+        // we expect the response to be numm because ssn is good
         // response == null
         Assertions.assertNull(response);
     }
