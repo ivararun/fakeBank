@@ -1,0 +1,4 @@
+com\practice\sumitdai\mapper\MapperTest.class
+com\practice\sumitdai\dao\DaoTest.class
+com\practice\sumitdai\validation\ProfileValidateTest.class
+com\practice\sumitdai\SumitdaiApplicationTests.class

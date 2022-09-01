@@ -1,0 +1,10 @@
+com\practice\sumitdai\service\ProfileService.class
+com\practice\sumitdai\controller\ProfileController.class
+com\practice\sumitdai\dao\ProfileDao.class
+com\practice\sumitdai\SumitdaiApplication.class
+com\practice\sumitdai\validation\ProfileValidate.class
+com\practice\sumitdai\mapper\ProfileMapper.class
+com\practice\sumitdai\repo\ProfileRepo.class
+com\practice\sumitdai\config\SpringFoxConfig.class
+com\practice\sumitdai\entity\ProfileEntity.class
+com\practice\sumitdai\model\ProfileModel.class
